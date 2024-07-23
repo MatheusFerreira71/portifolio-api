@@ -1,2 +1,2 @@
-# template-api
-Repositório de Template de API abstrata com Prisma
+# portifolio-api
+Repositório da API do portifólio

@@ -7,11 +7,46 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model User {
+model Profile {
   id        Int      @id @default(autoincrement())
+  nome      String   @unique
+  descricao String
+  celular   String
+  email     String
+  github    String
+  linkedin  String
+  avatar    String
+  curriculo String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Project {
+  id        Int           @id @default(autoincrement())
+  titulo    String
+  banner    String
+  descricao String
+  codigo    String
+  preview   String
+  Techs     ProjectTech[]
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+}
+
+model ProjectTech {
+  id        Int      @id @default(autoincrement())
+  projectId Int
+  techId    Int
+  Project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  Tech      Tech     @relation(fields: [techId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Tech {
+  id        Int           @id @default(autoincrement())
   nome      String
-  password  String
-  avatar    String?
+  Projects  ProjectTech[]
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
 }
