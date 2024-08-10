@@ -1,7 +1,5 @@
 import { Router } from "express";
 import ProfileController from "./Profile.controller";
-import ProfileServico from "./Profile.servico";
-import ProfileRepositorio from "./Profile.repositorio";
 
 const profileRouter = Router();
 

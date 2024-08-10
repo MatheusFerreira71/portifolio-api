@@ -1,5 +1,5 @@
 import { afterAll, beforeAll, describe, expectTypeOf, test } from "vitest";
-import prisma from "../../../prisma/prisma";
+import prisma from "../../prisma";
 import ProfileServico from "./Profile.servico";
 import { Profile } from "@prisma/client";
 

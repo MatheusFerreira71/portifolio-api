@@ -2,6 +2,7 @@ import 'express-async-errors';
 import express, { NextFunction, Request, Response } from 'express';
 import 'dotenv/config';
 import cors from 'cors';
+import path from 'path';
 
 import morgan from 'morgan';
 
@@ -24,6 +25,8 @@ app.use(cors(), (req, res, next) => {
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
   next();
 });
+
+app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
 
 app.use(routes);
 

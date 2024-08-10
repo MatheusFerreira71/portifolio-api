@@ -1,4 +1,4 @@
-import prisma from "../../../prisma/prisma";
+import prisma from "../../prisma";
 import { Profile } from "@prisma/client";
 
 export default class ProfileRepositorio implements ProfileRepositorio {
